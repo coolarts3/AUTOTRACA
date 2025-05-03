@@ -1,9 +1,9 @@
 /* --- Variables de Color (Paleta Clásica Racing) --- */
 :root {
-    --primary-color: #FF0000; /* Rojo Intenso */
-    --secondary-color: #1E1E1E; /* Gris muy oscuro / Casi Negro */
+    --primary-color: #339cff; /* Rojo Intenso */
+    --secondary-color: #2D2D2D; /* Gris muy oscuro / Casi Negro */
     --background-light: #FFFFFF; /* Blanco */
-    --background-dark: #111111; /* Negro para secciones oscuras */
+    --background-dark: #2D2D2D; /* Negro para secciones oscuras */
     --text-light: #F8F9FA; /* Texto claro sobre fondos oscuros */
     --text-dark: #212529; /* Texto oscuro sobre fondos claros */
     --accent-color: #C0C0C0; /* Plata/Gris claro para detalles */
