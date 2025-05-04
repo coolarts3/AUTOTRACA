@@ -441,68 +441,25 @@ footer a:hover {
 }
 
 /* --- Estilos para el Calendario --- */
-#calendar-container {
-    max-width: 450px; /* Ancho máximo del calendario */
-    margin: 2rem auto; /* Centrado */
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 15px;
-    background-color: #f9f9f9; /* Fondo ligeramente gris */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-#calendar-header {
-    text-align: center;
-    margin-bottom: 1rem;
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: var(--secondary-color); /* Color oscuro */
-}
-
-#calendar-header #month-name {
-    margin-right: 0.5rem; /* Espacio entre mes y año */
-}
-
-#calendar-table {
-    width: 100%;
-    border-collapse: collapse; /* Une los bordes de las celdas */
-    table-layout: fixed; /* Columnas de ancho fijo */
-}
-
-#calendar-table th { /* Cabecera de días de la semana */
-    padding: 8px 5px;
-    text-align: center;
-    font-size: 0.9rem;
-    font-weight: bold;
-    color: var(--primary-color); /* Color rojo */
-    border-bottom: 2px solid #eee;
-}
-
-#calendar-table td { /* Celdas de los días */
-    padding: 12px 5px;
-    text-align: center;
-    vertical-align: middle;
-    border: 1px solid #eee; /* Borde fino para cada celda */
-    font-size: 0.95rem;
-    height: 50px; /* Altura fija para celdas */
-    color: var(--text-dark); /* Color de texto oscuro por defecto */
-}
-
-/* Estilo para celdas vacías (antes del día 1) */
-#calendar-table td.empty-day {
-    background-color: #fdfdfd;
-    border-color: #f1f1f1;
-}
-
-/* Estilo para el día actual */
-#calendar-table td.current-day {
-    background-color: var(--primary-color); /* Fondo rojo */
-    color: var(--text-light); /* Texto blanco */
-    font-weight: bold;
-    border-radius: 50%; /* Círculo */
-    border-color: transparent;
-}
-
+/* ... (Estilos del calendario y lista de eventos sin cambios aparentes) ... */
+#calendar-container { max-width: 450px; margin: 2rem auto; border: 1px solid #ddd; border-radius: 8px; padding: 15px; background-color: #f9f9f9; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+#calendar-header { text-align: center; margin-bottom: 1rem; font-size: 1.4rem; font-weight: bold; color: var(--secondary-color); }
+#calendar-header #month-name { margin-right: 0.5rem; }
+#calendar-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+#calendar-table th { padding: 8px 5px; text-align: center; font-size: 0.9rem; font-weight: bold; color: var(--primary-color); border-bottom: 2px solid #eee; }
+#calendar-table td { padding: 12px 5px; text-align: center; vertical-align: middle; border: 1px solid #eee; font-size: 0.95rem; height: 50px; color: var(--text-dark); }
+#calendar-table td.empty-day { background-color: #fdfdfd; border-color: #f1f1f1; }
+#calendar-table td.current-day { background-color: var(--primary-color); color: var(--text-light); font-weight: bold; border-radius: 50%; border-color: transparent; }
+#calendar-table td.event-day { position: relative; font-weight: bold; }
+#calendar-table td.event-day::after { content: ''; position: absolute; bottom: 6px; left: 50%; transform: translateX(-50%); width: 6px; height: 6px; background-color: var(--accent-color); border-radius: 50%; }
+#calendar-table td.current-day.event-day::after { background-color: var(--text-light); }
+#event-list-container { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #eee; }
+#event-list-container h4 { margin-bottom: 0.8rem; color: var(--secondary-color); }
+#event-list ul { list-style: none; padding: 0; margin: 0; }
+#event-list li { padding: 8px 0; border-bottom: 1px dotted #ddd; font-size: 0.95rem; line-height: 1.4; }
+#event-list li:last-child { border-bottom: none; }
+#event-list li strong { color: var(--primary-color); margin-right: 8px; }
+#event-list p { color: #666; font-style: italic; }
 /* (Opcional) Estilo si un día tuviera un evento */
 /*
 #calendar-table td.event-day {
@@ -564,108 +521,112 @@ footer a:hover {
 
 
 /* --- Estilos para el Formulario de Contacto --- */
+.form-group {
+    margin-bottom: 1.2rem; 
+}
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+	position: relative;
+	z-index: 2;
+    font-size: 0.95rem;
+    color: #fff; /* Color por defecto en formularios claros */
+}
+/* Inputs comunes */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="date"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+	position: relative;
+	z-index: 2;
+    font-family: inherit;
+    box-sizing: border-box; 
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.form-group textarea {
+    resize: vertical; 
+    min-height: 120px;
+}
+/* Focus en inputs */
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="date"]:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color); 
+    outline: none; 
+	position: relative;
+	z-index: 2;
+    box-shadow: 0 0 0 3px hsla(215, 100%, 55%, 0.2); 
+}
+/* Contenedor del botón submit */
+.form-submit {
+    text-align: center; /* Centrado por defecto */
+    margin-top: 2rem;
+    padding-top: 1rem; 
+    border-top: 1px solid #eee;
+	position: relative;
+	z-index: 2;
+}
+/* Botón submit (usa clase .cta-button) */
+.form-submit .cta-button {
+     min-width: 180px; 
+     cursor: pointer;
+}
+
+.form-background {
+	background: url('images/acs 2025-02-18 00-41-31.bmp') no-repeat center center / cover;
+}
+
 .form-overlay { /* Capa oscura opcional para legibilidad */
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 120%;
     background-color: rgba(0, 0, 0, 0.5); /* Ajusta la opacidad */
     z-index: 1;
 }
 
-.form-group {
-    position: relative; /* Para que esté sobre el overlay */
-    z-index: 2;
+/* --- Estilos específicos para #contact-form-section (si es diferente) --- */
+/* Simplificado, asumiendo fondo blanco o claro */
+#contact-form-section { 
+    max-width: 700px; 
+    margin: 2rem auto; 
+    padding: 3rem 1.5rem; 
+    border-radius: 8px; 
+    box-shadow: 0 3px 10px rgba(0,0,0,0.5); 
 }
+#contact-form-section h1 { text-align: center; position: relative; color: var(--background-light); font-size: 2.5rem; margin-bottom: 1rem; z-index: 2; }
+#contact-form-section p { text-align: center; position: relative; margin-bottom: 1.5rem; color: #fff; z-index: 2; }
+/* Hereda los estilos de .form-group, input, label definidos arriba */
+/* Ajustar alineación del botón si se quiere a la derecha */
+/* #contact-form-section .form-submit { text-align: right; } */
 
-#contact-form-section {
-    max-width: 700px; /* Limita el ancho del contenedor del formulario */
-    margin-left: auto;
-    margin-right: auto;	
-	
+/* --- Estilos específicos para #registro-form-section --- */
+/* Ya definidos antes, heredan de .form-group, etc. */
+#registro-form-section {
+    max-width: 650px; 
+    margin: 3rem auto; 
+    padding: 2rem 2.5rem; 
+    background-color: #ffffff; 
+    border: 1px solid #e0e0e0; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
+    text-align: left; 
+	z-index: 1;
 }
+#registro-form-section h2 { text-align: center; position: relative; color: var(--background-light); margin-bottom: 0.75rem; font-size: 1.8rem; z-index: 2; }
+#registro-form-section p { text-align: center; position: relative; margin-bottom: 2rem; color: #fff; font-size: 1rem; z-index: 2; }
+#registro-form-section hr { border: 0; position: relative; height: 1px; background-color: #eee; margin: 2rem 0; z-index: 2; }
+/* Hereda .form-group, etc. */
+#registro-form-section .form-submit { text-align: center; border-top: 1px solid #eee;}
 
-.form-background {
-	background: url('images/acs 2025-02-18 00-41-31.bmp') no-repeat center center/cover; /* REEMPLAZA con tu imagen */
-}
-
-
-
-#contact-form-section h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-    color: var(--background-light); /* Título del héroe en blanco */
-    color: var(--background-light); /* Título del héroe en blanco */
-	    position: relative; /* Para que esté sobre el overlay */
-    z-index: 2;
-}
-
-#contact-form-section p {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    color: var(--background-light); /* Título del héroe en blanco */
-    color: var(--background-light); /* Título del héroe en blanco */
-	    position: relative; /* Para que esté sobre el overlay */
-    z-index: 2;
-}
-
-.form-group {
-    margin-bottom: 1.5rem; /* Espacio entre grupos de campos */
-}
-
-.form-group label {
-    display: block; /* Hace que la etiqueta ocupe su propia línea */
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-    color: var(--background-light); /* O el color apropiado */
-}
-
-/* Estilo común para inputs y textarea */
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group textarea {
-    width: 100%; /* Ocupan todo el ancho disponible */
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-family: inherit; /* Usa la misma fuente que el resto del sitio */
-    box-sizing: border-box; /* Importante para que padding no aumente el ancho total */
-	    position: relative; /* Para que esté sobre el overlay */
-    z-index: 2;
-}
-
-.form-group textarea {
-    resize: vertical; /* Permite redimensionar verticalmente */
-    min-height: 120px;
-}
-
-/* Estilo para cuando el campo está enfocado (seleccionado) */
-.form-group input[type="text"]:focus,
-.form-group input[type="email"]:focus,
-.form-group textarea:focus {
-    border-color: var(--primary-color); /* Cambia el borde a rojo */
-    outline: none; /* Quita el borde por defecto del navegador */
-    box-shadow: 0 0 5px rgba(255, 0, 0, 0.3); /* Sombra roja suave */
-	    position: relative; /* Para que esté sobre el overlay */
-    z-index: 2;
-}
-
-.form-group.form-submit {
-    text-align: right; /* Alinea el botón a la derecha */
-    margin-top: 2rem;
-}
-
-.social-links {
-    position: relative; /* Para que esté sobre el overlay */
-    z-index: 2;
-}
-
-.container {
-    position: relative; /* Para que esté sobre el overlay */
-    z-index: 2;
-}
 
 /* --- Estilos Base (Aplicables a todas las pantallas si no se sobrescriben) --- */
 
@@ -680,6 +641,77 @@ footer a:hover {
     padding: 5px 10px;
     z-index: 1010; /* Asegurar que esté sobre otros elementos si es necesario */
     margin-left: auto; /* Lo empuja a la derecha si el logo está presente */
+}
+
+/* CONTACTO PARA MOVIL */
+
+@media (max-width: 768px) { 
+
+.form-group button.cta-button {
+	position: center; /* Para que esté sobre el overlay */
+	text-align: center;
+	box-sizing: border-box;
+	display: flex;
+	width: 100%;
+
+  /* Para centrar horizontalmente los hijos: */
+  justify-content: center; 
+
+  /* Para centrar verticalmente los hijos (si el padre tiene altura): */
+  align-items: center; 
+}	
+
+#contact-form-section h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--background-light); /* Título del héroe en blanco */
+    color: var(--background-light); /* Título del héroe en blanco */
+	position: relative; /* Para que esté sobre el overlay */
+	text-align: center;
+    z-index: 2;
+}
+
+#contact-form-section p {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+    color: var(--background-light); /* Título del héroe en blanco */
+    color: var(--background-light); /* Título del héroe en blanco */
+	text-align: center;
+	position: relative; /* Para que esté sobre el overlay */
+    z-index: 2;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%; /* Ocupan todo el ancho disponible */
+    padding: 3px;
+    border: 0px solid #ccc;
+    border-radius: 0px;
+	max-width: 800px;
+    font-size: 1rem;
+    font-family: inherit; /* Usa la misma fuente que el resto del sitio */
+    box-sizing: border-box; /* Importante para que padding no aumente el ancho total */
+	position: relative; /* Para que esté sobre el overlay */
+    z-index: 2;
+}
+
+.form-group textarea {
+    resize: vertical; /* Permite redimensionar verticalmente */
+    min-height: 100px;
+}
+
+/* Estilo para cuando el campo está enfocado (seleccionado) */
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color); /* Cambia el borde a rojo */
+    outline: none; /* Quita el borde por defecto del navegador */
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.3); /* Sombra roja suave */
+	    position: relative; /* Para que esté sobre el overlay */
+    z-index: 2;
+}
+
 }
 
 /* Estilos del menú de navegación UL (escritorio por defecto) */
@@ -707,7 +739,8 @@ header nav ul li {
         /* Si no tenías logo, el botón será el único elemento visible además del nav (que ocultaremos) */
         /* Podría necesitar ajustar su posición si el header-content tiene justify-content: center */
          order: 3; /* Si usas flexbox en header-content, esto puede ayudar a posicionarlo al final */
-         margin-left: auto; /* Intenta empujarlo a la derecha */
+         margin-left: center; /* Intenta empujarlo a la derecha */
+		 
     }
 
     /* Ocultar el NAV completo o solo el UL. Ocultar UL es más seguro */
@@ -783,15 +816,132 @@ header nav ul li {
     /* Ajustar el contenedor flex del header en móvil si es necesario */
     /* Si quitaste el logo, ahora solo está el botón y el nav (oculto) */
     .header-content {
-         /* justify-content: space-between; */ /* Quizás quieras volver a esto */
-         /* O mantener justify-content: center si solo quieres el botón centrado (raro) */
+        display: flex;           /* Debe seguir siendo flex */
+        align-items: center;     /* Mantiene el centrado vertical */
+        justify-content: center; /* ¡ESTA ES LA CLAVE! Centra el/los item(s) horizontalmente */
+        
+        /* Las propiedades de width/max-width/margin probablemente ya las hereda de .container o las tiene definidas */
+        /* width: 90%; max-width: 1100px; margin: 0 auto; */ 
     }
-     /* Quitar el margen auto del nav que no aplica en móvil */
-     header nav {
-         margin: 0; 
-     }
 
-} /* Fin de @media */
+    /* Asegúrate de que el botón esté visible */
+    .menu-toggle-button {
+        display: block; /* O inline-block, para que sea visible */
+        
+        /* ¡IMPORTANTE! Elimina cualquier margen automático o 'order' que pudiera quedar de intentos anteriores */
+        margin-left: 0; 
+        margin-right: 0;
+        order: 0; /* Resetea el orden si lo habías cambiado */
+    }
+
+    /* Asegúrate de que el <nav> no tenga margen automático en móvil */
+    header nav {
+        margin: 0; 
+    }
+
+     /* ... (el resto de tus estilos para ul, li, a en móvil) ... */
+	 
+
+
+}
+
+/* --- Estilos para el Formulario de Registro (Añadir a style.css) --- */
+
+/* Contenedor principal de la sección del formulario */
+#registro-form-section {
+    max-width: 650px;       /* Un ancho máximo razonable para el formulario */
+    margin: 3rem auto;      /* Centrado horizontalmente y margen vertical */
+    padding: 2rem 2.5rem;   /* Relleno interior generoso */
+    background-color: #ffffff; /* Fondo blanco para destacar sobre la página si es gris */
+    border: 1px solid #e0e0e0; /* Borde sutil */
+    border-radius: 8px;     /* Esquinas redondeadas */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra suave */
+    text-align: left;       /* Alineación de texto por defecto a la izquierda */
+}
+
+/* Título y párrafo dentro de la sección */
+#registro-form-section h2 {
+    text-align: center;         /* Centrar el título */
+    color: var(--secondary-color); /* O usa --primary-color si prefieres */
+    margin-bottom: 0.75rem;     /* Reducir espacio inferior */
+    font-size: 1.8rem;          /* Ajustar tamaño si es necesario */
+}
+
+#registro-form-section p {
+    text-align: center;
+    margin-bottom: 2rem;      /* Espacio antes de la línea */
+    color: #666;              /* Gris para el texto descriptivo */
+    font-size: 1rem;
+}
+
+#registro-form-section hr {
+    border: 0;
+    height: 1px;
+    background-color: #eee;  /* Línea separadora más clara */
+    margin: 2rem 0;
+}
+
+/* Grupos de formulario (etiqueta + campo) */
+#registro-form-section .form-group {
+    margin-bottom: 1.2rem;   /* Espacio vertical entre campos */
+}
+
+#registro-form-section .form-group label {
+    display: block;          /* La etiqueta ocupa su propia línea */
+    margin-bottom: 0.5rem;   /* Espacio entre etiqueta y campo */
+    font-weight: 600;        /* Un poco más de peso */
+    font-size: 0.9rem;       /* Tamaño ligeramente reducido */
+    color: #333;             /* Color de etiqueta */
+}
+
+/* Estilo común para los campos de entrada (texto, fecha) */
+#registro-form-section .form-group input[type="text"],
+#registro-form-section .form-group input[type="date"] {
+    width: 100%;                /* Ocupan todo el ancho */
+    padding: 10px 14px;         /* Relleno interior */
+    border: 1px solid #ccc;     /* Borde estándar */
+    border-radius: 5px;         /* Esquinas redondeadas */
+    font-size: 1rem;            /* Tamaño de fuente legible */
+    font-family: inherit;       /* Misma fuente que el body */
+    box-sizing: border-box;     /* Padding no aumenta el tamaño total */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease; /* Transición suave */
+}
+
+/* Efecto visual al seleccionar (enfocar) un campo */
+#registro-form-section .form-group input[type="text"]:focus,
+#registro-form-section .form-group input[type="date"]:focus {
+    border-color: var(--primary-color); /* Cambia color del borde al primario (azul) */
+    outline: none;                      /* Quita el borde/outline feo del navegador */
+    box-shadow: 0 0 0 3px hsla(215, 100%, 55%, 0.2); /* Sombra exterior suave del color primario */
+}
+
+/* Contenedor del botón de envío */
+#registro-form-section .form-submit {
+    text-align: center;         /* Centrar el botón */
+    margin-top: 2.5rem;       /* Más espacio antes del botón */
+    padding-top: 1rem;        /* Espacio extra arriba */
+    border-top: 1px solid #eee; /* Línea separadora opcional antes del botón */
+}
+
+/* Reutilizar el estilo del botón principal que ya tenías */
+#registro-form-section .cta-button {
+    /* Puedes añadir estilos específicos aquí si quieres que sea diferente */
+    /* Por ejemplo, un ancho mínimo */
+     min-width: 180px; 
+     cursor: pointer;
+}
+
+/* (Opcional) Estilos responsivos para el formulario si es necesario */
+@media (max-width: 480px) {
+    #registro-form-section {
+        padding: 1.5rem; /* Menos padding en pantallas muy pequeñas */
+    }
+     #registro-form-section h2 {
+        font-size: 1.5rem; 
+    }
+}
+
+
 
 
 /* Reutilizamos el estilo del botón CTA principal */

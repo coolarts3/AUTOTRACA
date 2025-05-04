@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <script src="https://formspree.io/f/xkgrjlgp" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTRO DATOS</title> <meta name="description" content="Formulario para registrar datos de pilotos y competiciones."> <link rel="stylesheet" href="style.css">
+	<link rel="icon" type="image/png" href="images/ICONS/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="images/ICONS/favicon.svg" />
+<link rel="shortcut icon" href="images/ICONS/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="images/ICONS/apple-touch-icon.png" />
+<link rel="manifest" href="images/ICONS/site.webmanifest" />
+    </head>
+<body>
+
+<header>
+    <div class="container"> 
+        <div class="header-content"> 
+            <button id="menu-toggle" class="menu-toggle-button" aria-label="Abrir menú" aria-expanded="false">
+                &#9776; 
+            </button>
+            <nav> 
+                <ul id="main-nav-ul">
+                    <li><a href="index.html">INICIO</a></li>
+                    <li><a href="#about-teaser">EQUIPO</a></li> 
+                    <li><a href="calendario.html">EVENTOS</a></li> 
+                    <li><a href="contacto.html">CONTACTO</a></li>
+					<li><a href="acceso.html">ACCESO</a></li>
+                </ul>
+            </nav> 
+        </div> 
+    </div> 
+</header>
+<main>
+    <section id="registro-form-section" class="content-section page-content">
+        <div class="container">		
+            <h2>Registrar Nuevo Resultado/Evento</h2> 
+            <p>Introduce los datos de la participación.</p>
+            <hr>
+
+            <form id="registroForm" action="https://formspree.io/f/xkgrjlgp" method="POST"> 
+                <div class="form-group">
+                    <label for="piloto">Nombre Piloto:</label>
+                    <input type="text" id="piloto" name="pilot_name" required> 
+                </div>
+                <div class="form-group">
+                    <label for="competicion">Competición:</label>
+                    <input type="text" id="competicion" name="competition" required>
+                </div>
+                <div class="form-group">
+                    <label for="coche">Coche:</label>
+                    <input type="text" id="coche" name="car_model" required>
+                </div>
+                <div class="form-group">
+                    <label for="skin">Skin/Livery:</label>
+                    <input type="text" id="skin" name="car_skin"> 
+                </div>
+                <div class="form-group">
+                    <label for="fecha">Fecha:</label>
+                    <input type="date" id="fecha" name="event_date" required>
+                </div>
+                <div class="form-group form-submit">
+                    <button type="submit" class="cta-button">Guardar Datos</button>
+                </div>
+            </form>
+            
+        </div></section></main> <footer>
+    <div class="container">
+        <p>&copy; 2025 Autotraca Motorsport. Todos los derechos reservados.</p>
+        <div class="social-links">
+            <a href="[Tu URL Twitter]" target="_blank" title="Twitter"><i class="fa-brands fa-x-twitter"></i></a> <a href="[Tu URL Instagram]" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="[Tu URL Twitch]" target="_blank" title="Twitch"><i class="fa-brands fa-twitch"></i></a>
+            <a href="[Tu URL Youtube]" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a> 
+        </div>
+    </div>
+</footer>
+
+<script src="script.js" defer></script> 
+
+</body>
+</html>

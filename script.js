@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let eventsData = [
       { 
         "date": "2025-05-10", // Formato YYYY-MM-DD
-        "title": "Carrera: GP de España Virtual (iRacing)" 
+        "title": "ADGFSDGDFG" 
       },
       { 
         "date": "2025-05-18", 
