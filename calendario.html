@@ -4,71 +4,69 @@
     <script src="https://kit.fontawesome.com/ef052c2e33.js" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Título de la Página - Autotraca Motorsport</title>
-    <meta name="description" content="[Escribe aquí una breve descripción del contenido de esta página específica]">
-    <link rel="stylesheet" href="style.css">
-    </head>
+    <title>Calendario - Autotraca Motorsport</title> <meta name="description" content="Calendario de eventos del equipo Autotraca Motorsport"> <link rel="stylesheet" href="style.css"> 
+    <script src="ruta/correcta/a/script.js" defer></script>
+</body>
+   </head>
 <body>
 
-    <header>
-        <nav>
-				<div class="container"> <div class="header-content">
-                <ul>
-                    <li><a href="index.html">INICIO</a></li>
-                    <li><a href="#about-teaser">EQUIPO</a></li>
+<header>
+    <div class="container"> 
+        <div class="header-content"> 
+            <button id="menu-toggle" class="menu-toggle-button" aria-label="Abrir menú" aria-expanded="false">
+                &#9776; 
+            </button>
+            <nav> 
+                <ul id="main-nav-ul">
+                    <li><a href="index.html">INICIO</a></li> <li><a href="#about-teaser">EQUIPO</a></li>
                     <li><a href="pilotos.html">PILOTOS</a></li> 
-					<li><a href="resultados.html">RESULTADOS</a></li> 
-					<li><a href="galeria.html">GALERIA</a></li> 
-					<li><a href="calendario.html">EVENTOS</a></li> 
-					<li><a href="contacto.html">CONTACTO</a></li>
-            </nav>
-        </div>
-    </header>
-    <main>
-        <section class="content-section page-content">
-            <div class="container">
-			
-<section id="calendar-section" class="content-section">
-    <div class="container">
-        <h2>CALENDARIO</h2>
-		<script src="script.js" defer></script>
-       <div id="calendar-container">
-             <div id="calendar-header">
-                 <span id="month-name"></span> <span id="year"></span>
-             </div>
-             <table id="calendar-table">
-                 <thead>
-                     <tr>
-                         <th>Lun</th> <th>Mar</th> <th>Mié</th> <th>Jue</th> <th>Vie</th> <th>Sáb</th> <th>Dom</th>
-                     </tr>
-                 </thead>
-                 <tbody id="calendar-body">
-                     </tbody>
-             </table>
-         </div> 
-         <div id="event-list-container">
-             <h4>Eventos del Mes:</h4>
-             <div id="event-list">
-                 </div>
-         </div>
-         </div>
- </section>
+                    <li><a href="resultados.html">RESULTADOS</a></li> 
+                    <li><a href="galeria.html">GALERIA</a></li> 
+                    <li><a href="calendario.html">EVENTOS</a></li> 
+                    <li><a href="contacto.html">CONTACTO</a></li>
+                </ul>
+            </nav> 
+        </div> 
+    </div> 
+</header>
 
-
-
-                </div>
-        </section>
-    </main>
-    <footer>
+<main> 
+    <section id="calendar-section" class="content-section">
         <div class="container">
-            <p>&copy; 2025 Autotraca Motorsport. Todos los derechos reservados.</p>
-             <div class="social-links">
-                 <a href="[Tu URL Twitter]" target="_blank" title="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-                     <a href="https://www.instagram.com/autotraca_motorsport" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                     <a href="https://www.twitch.tv/boordup" target="_blank" title="Twitch"><i class="fa-brands fa-twitch"></i></a>
-                     <a href="https://www.youtube.com/@autotracamotorsport" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
-             </div>
+            <h2>CALENDARIO</h2>
+            <div id="calendar-container">
+                <div id="calendar-header">
+                    <span id="month-name"></span> <span id="year"></span>
+                </div>
+                <table id="calendar-table">
+                    <thead>
+                        <tr>
+                            <th>Lun</th> <th>Mar</th> <th>Mié</th> <th>Jue</th> <th>Vie</th> <th>Sáb</th> <th>Dom</th>
+                        </tr>
+                    </thead>
+                    <tbody id="calendar-body">
+                        </tbody>
+                </table>
+            </div> 
+            <div id="event-list-container">
+                <h4>Eventos del Mes:</h4>
+                <div id="event-list">
+                    </div>
+            </div>
         </div>
-    </footer>
-    </body>
+    </section>
+</main> <footer>
+    <div class="container">
+        <p>© 2025 Autotraca Motorsport. Todos los derechos reservados.</p>
+        <div class="social-links">
+            <a href="[Tu URL Twitter]" target="_blank" title="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.instagram.com/autotraca_motorsport" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.twitch.tv/boordup" target="_blank" title="Twitch"><i class="fa-brands fa-twitch"></i></a>
+            <a href="[Tu URL Youtube]" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a> </div>
+    </div>
+</footer>
+
+<script src="script.js" defer></script> 
+
+</body>
 </html>

@@ -190,3 +190,37 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCalendar(today.getFullYear(), today.getMonth()); 
 
 }); // Fin del addEventListener('DOMContentLoaded')
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    // ... (tu código existente para el calendario, etc.) ...
+
+    // --- Lógica para el Menú Hamburguesa ---
+ const menuToggle = document.getElementById('menu-toggle');
+ const mainNavUl = document.getElementById('main-nav-ul');
+
+ if (menuToggle && mainNavUl) {
+     // ESTE ES EL LOG IMPORTANTE AHORA:
+     console.log("Elementos del menú encontrados. Intentando añadir listener al botón..."); 
+
+     menuToggle.addEventListener('click', () => {
+         console.log("Clic en botón menú hamburguesa."); // Log para depuración
+
+         mainNavUl.classList.toggle('menu-visible'); 
+
+         console.log("Click procesado. Clases DESPUÉS:", mainNavUl.classList);
+
+         const isExpanded = mainNavUl.classList.contains('menu-visible');
+         menuToggle.setAttribute('aria-expanded', isExpanded);
+
+         // (Opcional) Cambiar icono
+         // if (isExpanded) { ... } else { ... }
+     });
+     console.log("Listener añadido al botón."); // <-- AÑADE ESTE TAMBIÉN
+
+ } else {
+      console.warn("ADVERTENCIA: No se encontró el botón #menu-toggle o la lista #main-nav-ul.");
+ }
+ // --- Fin Lógica Menú ---
+
+}); // Fin del DOMContentLoaded

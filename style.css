@@ -667,6 +667,132 @@ footer a:hover {
     z-index: 2;
 }
 
+/* --- Estilos Base (Aplicables a todas las pantallas si no se sobrescriben) --- */
+
+/* Botón Hamburguesa: Oculto por defecto (visión escritorio) */
+.menu-toggle-button {
+    display: none; /* Oculto en pantallas grandes */
+    background: transparent;
+    border: none;
+    color: var(--text-light); /* O el color que quieras para el icono */
+    font-size: 1.8rem; /* Tamaño del icono hamburguesa */
+    cursor: pointer;
+    padding: 5px 10px;
+    z-index: 1010; /* Asegurar que esté sobre otros elementos si es necesario */
+    margin-left: auto; /* Lo empuja a la derecha si el logo está presente */
+}
+
+/* Estilos del menú de navegación UL (escritorio por defecto) */
+header nav ul {
+    list-style: none;
+    display: flex; /* Horizontal en escritorio */
+    padding: 0;
+    margin: 0; /* Asegúrate de que no haya márgenes por defecto */
+}
+
+header nav ul li {
+     margin-left: 20px; /* Espacio entre items en escritorio */
+}
+ header nav ul li:first-child {
+    margin-left: 0; 
+ }
+
+
+/* --- Estilos para Móvil (Pantallas Pequeñas) --- */
+@media (max-width: 768px) { /* Ajusta este valor (breakpoint) según necesites */
+
+    /* Mostrar el botón hamburguesa */
+    .menu-toggle-button {
+        display: block; /* Hacemos visible el botón */
+        /* Si no tenías logo, el botón será el único elemento visible además del nav (que ocultaremos) */
+        /* Podría necesitar ajustar su posición si el header-content tiene justify-content: center */
+         order: 3; /* Si usas flexbox en header-content, esto puede ayudar a posicionarlo al final */
+         margin-left: auto; /* Intenta empujarlo a la derecha */
+    }
+
+    /* Ocultar el NAV completo o solo el UL. Ocultar UL es más seguro */
+    /* header nav { display: none; } */ /* Cuidado si el botón está dentro del nav */
+
+    /* Estilos del UL cuando es menú desplegable */
+    header nav ul#main-nav-ul {
+        display: none; /* OCULTO por defecto en móvil */
+        position: absolute; /* Lo sacamos del flujo para posicionarlo */
+        top: 100%; /* Lo posiciona justo debajo del header (asumiendo que el header tiene position sticky/relative) */
+        /* top: 70px; */ /* O una altura fija si sabes cuánto mide tu header */
+        left: 0;
+        width: 100%;
+        background-color: var(--secondary-color); /* Fondo oscuro (o el que prefieras) */
+        flex-direction: column; /* Apila los elementos verticalmente */
+        padding: 0; /* Sin padding por defecto */
+        margin: 0; /* Sin margen por defecto */
+        box-shadow: 0 3px 5px rgba(0,0,0,0.2); /* Sombra para el desplegable */
+        z-index: 1000; /* Asegurar que esté sobre el contenido de la página */
+    }
+	
+@media (max-width: 768px) {
+
+    /* ... otros estilos móviles ... */
+
+    /* ESTADO POR DEFECTO EN MÓVIL (OCULTO) */
+    header nav ul#main-nav-ul {
+        display: none; /* ¡Importante! Oculto por defecto */
+        position: absolute; 
+        /* ... otros estilos de posicionamiento, fondo, etc ... */
+        flex-direction: column; /* Asegurar dirección vertical */
+    }
+
+    /* ESTADO CUANDO ESTÁ VISIBLE (CON LA CLASE AÑADIDA POR JS) */
+    header nav ul#main-nav-ul.menu-visible {
+        display: flex; /* O display: block; Lo muestra */
+        /* No necesita más estilos aquí si ya están en la regla anterior */
+    }
+
+    /* ... otros estilos móviles ... */
+}
+
+    /* Clase que AÑADIREMOS con JavaScript para MOSTRAR el menú */
+    header nav ul#main-nav-ul.menu-visible {
+        display: flex; /* O display: block; Lo hacemos visible */
+    }
+
+    /* Estilos para los items y enlaces dentro del menú desplegable */
+    header nav ul#main-nav-ul li {
+        margin-left: 0; /* Sin margen izquierdo */
+        width: 100%; /* Ocupa todo el ancho */
+        text-align: center; /* Centra el texto del enlace */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea separadora */
+    }
+     header nav ul#main-nav-ul li:last-child {
+         border-bottom: none; /* Sin línea en el último */
+     }
+
+
+    header nav ul#main-nav-ul li a {
+        display: block; /* Hace que el enlace ocupe todo el 'li' */
+        padding: 1rem 1.5rem; /* Padding generoso para tocar fácil */
+        color: var(--text-light); /* Color de texto */
+        text-decoration: none;
+        transition: background-color 0.2s ease-in-out;
+    }
+
+    header nav ul#main-nav-ul li a:hover {
+        background-color: var(--primary-color); /* Fondo rojo al pasar el ratón */
+        color: var(--text-light); /* Asegurar color de texto */
+    }
+
+    /* Ajustar el contenedor flex del header en móvil si es necesario */
+    /* Si quitaste el logo, ahora solo está el botón y el nav (oculto) */
+    .header-content {
+         /* justify-content: space-between; */ /* Quizás quieras volver a esto */
+         /* O mantener justify-content: center si solo quieres el botón centrado (raro) */
+    }
+     /* Quitar el margen auto del nav que no aplica en móvil */
+     header nav {
+         margin: 0; 
+     }
+
+} /* Fin de @media */
+
 
 /* Reutilizamos el estilo del botón CTA principal */
 /* .form-group button.cta-button { ... } */ 
