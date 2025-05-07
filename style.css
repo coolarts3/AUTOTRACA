@@ -153,7 +153,7 @@ nav ul li a:hover, nav ul li a.active { /* 'active' necesitaría JS para funcion
 #hero {
     position: relative; /* Necesario para el overlay */
     height: 95vh; /* Altura del banner */
-    background: url('images/acs 2025-02-18 00-41-31.bmp') no-repeat center center/cover; /* REEMPLAZA con tu imagen */
+    background: url('images/fondos/1.png') no-repeat center center/cover; /* REEMPLAZA con tu imagen */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -304,25 +304,6 @@ nav ul li a:hover, nav ul li a.active { /* 'active' necesitaría JS para funcion
     font-weight: bold;
 }
 
-/* --- Sección Pilotos (Preview Ejemplo) --- */
-.driver-preview {
-    margin: 2rem 0;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-}
-.driver-preview span { /* Reemplazar span con img cuando tengas fotos */
-    display: inline-block;
-    width: 80px;
-    height: 80px;
-    background-color: var(--accent-color);
-    color: var(--secondary-color);
-    border-radius: 50%; /* Círculo */
-    line-height: 80px; /* Centrar texto verticalmente (si usas texto) */
-    text-align: center;
-    font-weight: bold;
-}
-
 /* --- Sección Contacto --- */
 #contact .social-links {
     margin-top: 1.5rem;
@@ -365,38 +346,6 @@ footer a:hover {
     color: var(--primary-color);
 }
 
-/* --- Media Queries (Ejemplo Básico para Móviles) --- */
-@media (max-width: 768px) {
-    .header-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    nav ul {
-        flex-direction: column;
-        margin-top: 1rem;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-    }
-
-    #hero h1 {
-        font-size: 2.5rem;
-    }
-
-    #hero p {
-        font-size: 1rem;
-    }
-
-    .content-section {
-        padding: 2rem 0;
-    }
-
-     h2 {
-        font-size: 1.8rem;
-    }
-}
 
 /* --- Estilos para Contenido de Páginas Genéricas (Añadir a style.css) --- */
 .page-content {
@@ -581,6 +530,8 @@ footer a:hover {
 
 .form-background {
 	background: url('images/acs 2025-02-18 00-41-31.bmp') no-repeat center center / cover;
+	margin-top: 0rem;
+	margin-bottom: 0rem;
 }
 
 .form-overlay { /* Capa oscura opcional para legibilidad */
@@ -588,16 +539,20 @@ footer a:hover {
     top: 0;
     left: 0;
     width: 100%;
-    height: 120%;
+    height: 94%;
     background-color: rgba(0, 0, 0, 0.5); /* Ajusta la opacidad */
     z-index: 1;
+}
+
+.contacto-content {
+	padding: 0rem;
 }
 
 /* --- Estilos específicos para #contact-form-section (si es diferente) --- */
 /* Simplificado, asumiendo fondo blanco o claro */
 #contact-form-section { 
     max-width: 700px; 
-    margin: 2rem auto; 
+    margin: 0rem auto; 
     padding: 3rem 1.5rem; 
     border-radius: 8px; 
     box-shadow: 0 3px 10px rgba(0,0,0,0.5); 
@@ -612,7 +567,7 @@ footer a:hover {
 /* Ya definidos antes, heredan de .form-group, etc. */
 #registro-form-section {
     max-width: 650px; 
-    margin: 3rem auto; 
+    margin: 0rem auto; 
     padding: 2rem 2.5rem; 
     background-color: #ffffff; 
     border: 1px solid #e0e0e0; 
@@ -760,9 +715,7 @@ header nav ul li {
         margin: 0; /* Sin margen por defecto */
         box-shadow: 0 3px 5px rgba(0,0,0,0.2); /* Sombra para el desplegable */
         z-index: 1000; /* Asegurar que esté sobre el contenido de la página */
-    }
-	
-@media (max-width: 768px) {
+
 
     /* ... otros estilos móviles ... */
 
@@ -816,13 +769,16 @@ header nav ul li {
     /* Ajustar el contenedor flex del header en móvil si es necesario */
     /* Si quitaste el logo, ahora solo está el botón y el nav (oculto) */
     .header-content {
-        display: flex;           /* Debe seguir siendo flex */
-        align-items: center;     /* Mantiene el centrado vertical */
-        justify-content: center; /* ¡ESTA ES LA CLAVE! Centra el/los item(s) horizontalmente */
-        
-        /* Las propiedades de width/max-width/margin probablemente ya las hereda de .container o las tiene definidas */
-        /* width: 90%; max-width: 1100px; margin: 0 auto; */ 
-    }
+    justify-content: space-between; /* Pone botón a la derecha */
+    padding: 0 15px; /* Espacio lateral en móvil */
+    /* Asegúrate que no tenga otras propiedades conflictivas aquí */
+    width: 100%;     /* Que ocupe todo el .container */
+    max-width: none; /* Sin max-width fijo en móvil */
+}
+
+header nav {
+     margin: 0; 
+ }
 
     /* Asegúrate de que el botón esté visible */
     .menu-toggle-button {
@@ -940,6 +896,171 @@ header nav ul li {
         font-size: 1.5rem; 
     }
 }
+
+/* --- Estilos para los Botones del Carrusel --- */
+
+/* En style.css */
+
+.scroll-carousel-container {
+   max-width: 600px;   /* ANCHO DEL CARRUSEL VISIBLE (ajusta esto) */
+                           /* Asegúrate que sea menor que el ancho del .container de la página 
+                              para que haya espacio para los botones a los lados */
+    width: 100%;        /* Para que sea responsive hasta el max-width */
+    margin: 0;          /* Quitamos márgenes para que el 'gap' del wrapper controle el espacio */
+    overflow-x: hidden;   
+    border: 0px solid #eee; 
+    border-radius: 8px; 
+    flex-grow: 1; /* Opcional: si quieres que el carrusel ocupe el espacio central disponible entre los botones */
+    flex-shrink: 1; /* Permitir que se encoja si es necesario */
+    min-width: 100px; /* Evitar que se encoja demasiado */
+}
+
+.scroll-carousel {
+    display: flex;      
+    width: max-content; 
+}
+
+.carousel-item {
+    flex: 0 0 100%; 
+    width: 100%;    
+    box-sizing: border-box; 
+}
+
+.carousel-item img {
+    display: block;
+    width: 9.4%;   
+    height: auto; /* O altura fija + object-fit si es el caso */
+    /* ... */
+}
+
+/* Estilos de los botones de control (los mismos que antes) */
+.carousel-controls {
+    display: flex; 
+    justify-content: center; 
+    margin-bottom: 1rem; 
+}
+
+.carousel-button {
+     background-color: transparent;
+    color: white; 
+    padding: 0; /* El padding se maneja con width/height para centrar el icono */
+    cursor: pointer; 
+    font-size: 2rem; /* O usa un icono SVG/FontAwesome */
+    font-weight: bold;
+    width: 80px;  
+    height: 90px; 
+    
+    display: flex; /* Para centrar el carácter de flecha dentro del botón */
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    
+    flex-shrink: 0; /* Para que los botones no se encojan */
+    transition: background-color 0.2s ease, color 0.2s ease;
+	border: none;
+}
+
+.carousel-button:hover {
+     background-color: var(--primary-color); 
+    color: #2d2d2d; 
+}
+
+.blue-section {
+     background-image: url('images/barras blancas.png');
+	 background-size: cover;
+	 background-position: center center;
+}
+
+.blue-section h2 {
+    color: var(--text-light);
+}
+
+
+/* Estilo para botones deshabilitados */
+.carousel-button:disabled {
+    color: #2d2d2d;
+    cursor: not-allowed;
+    background-color: transparent;
+}
+
+.carousel-wrapper {
+    display: flex;         /* ¡CLAVE! Habilita Flexbox */
+    align-items: center;   /* ¡CLAVE! Centra verticalmente todos los hijos (botones y carrusel) */
+    justify-content: center; /* Opcional: Centra el conjunto si el wrapper es más ancho que su contenido */
+                           /* Podrías usar 'space-between' si quieres que los botones se separen más, 
+                              pero entonces el carrusel no se centraría tan fácilmente entre ellos.
+                              'center' con 'gap' suele funcionar bien. */
+    gap: 15px;             /* Espacio entre los botones y el carrusel (ajusta según necesites) */
+    margin-top: 2rem;      /* Margen opcional arriba del conjunto */
+    margin-bottom: 0rem;   /* Margen opcional abajo del conjunto */
+}
+
+/* --- Estilos para el Filtro de Descargas --- */
+.category-filter { margin-bottom: 2rem; max-width: 350px; }
+.category-filter label { font-size: 1rem; margin-bottom: 0.5rem; font-weight: bold; display: block;} /* Añadido display block y bold */
+.category-filter select { width: 100%; padding: 10px 12px; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem; font-family: inherit; background-color: white; cursor: pointer; }
+.category-filter select:focus { border-color: var(--primary-color); outline: none; box-shadow: 0 0 0 3px hsla(215, 100%, 55%, 0.2); }
+#download-sections { margin-top: 2rem; }
+/* Ocultar secciones por defecto */
+.download-category-section { display: none; margin-bottom: 2.5rem; }
+/* Mostrar sección visible */
+.download-category-section.visible-category { display: block; animation: fadeIn 0.5s ease-in-out; }
+/* Título de categoría */
+.download-category-section h3 { border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem; margin-bottom: 1.5rem; font-size: 1.5rem; color: var(--secondary-color); }
+/* Lista de descargas */
+.download-list { list-style: none; padding: 0; }
+.download-list li { background-color: #fdfdfd; border: 1px solid #eee; padding: 0.8rem 1.2rem; margin-bottom: 0.8rem; border-radius: 4px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+.download-list li a { text-decoration: none; color: var(--primary-color); font-weight: 600; flex-grow: 1; margin-right: 1rem; }
+.download-list li a:hover { text-decoration: underline; color: #1256c7; }
+.download-list li a i { margin-right: 0.8em; color: var(--secondary-color); width: 1.2em; text-align: center; }
+.download-list .file-size { font-size: 0.85em; color: #777; white-space: nowrap; margin-left: auto; padding-left: 1rem; }
+/* Animación Fade-in */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+
+
+@media (max-width: 700px) { /* Ajusta este breakpoint si el carrusel + botones no caben */
+    .carousel-wrapper {
+        /* flex-direction: column; */ /* Si quieres apilarlos verticalmente */
+        /* O simplemente reducir el tamaño de los botones o el gap */
+        gap: 8px;
+    }
+    .scroll-carousel-container {
+        /* Podrías querer que el carrusel ocupe más ancho relativo si los botones se mueven */
+        max-width: calc(100% - 80px); /* Ejemplo si los botones se mantienen a los lados */
+    }
+    .carousel-button {
+        width: 30px;
+        height: 30px;
+        font-size: 1.2rem;
+    }
+	
+	.blue-section {
+		background-image: none;
+		background-color: var(--primary-color);
+		color: var(--text-light);
+}
+
+/* --- Sección Pilotos (Preview Ejemplo) --- */
+.driver-preview {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+.driver-preview img { /* Reemplazar span con img cuando tengas fotos */
+    width: 10px;
+    height: 10px;
+    background-color: var(--accent-color);
+    color: var(--secondary-color);
+    border-radius: 60%; /* Círculo */
+    line-height: 80px; /* Centrar texto verticalmente (si usas texto) */
+    text-align: center;
+    font-weight: bold;
+}
+
+
+
 
 
 

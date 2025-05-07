@@ -23,20 +23,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // Define tus eventos aquí directamente como un array de objetos JavaScript.
     let eventsData = [
       { 
-        "date": "2025-05-10", // Formato YYYY-MM-DD
-        "title": "ADGFSDGDFG" 
+        "date": "2025-05-11", // Formato YYYY-MM-DD
+        "title": "II Rally Costa Daurada SIMRALLY" 
       },
       { 
         "date": "2025-05-18", 
-        "title": "Entrenamiento Oficial: Monza (Assetto Corsa)" 
+        "title": "III RALLY ISLA DE LANZAROTE SIMRALLY" 
       },
       { 
-        "date": "2025-05-18", // Múltiples eventos en el mismo día son posibles
-        "title": "Clasificación Liga F1 (Sim)" 
+        "date": "2025-05-25", // Múltiples eventos en el mismo día son posibles
+        "title": "V RALLY DE NARON SIMRALLY" 
       },
       { 
-        "date": "2025-05-25", 
-        "title": "Carrera: Endurance Series Ronda 3 (Le Mans)" 
+        "date": "2025-06-01", 
+        "title": "III RALLY DE LLORET SIMRALLY" 
       },
       { 
         "date": "2025-06-01", // Evento del mes siguiente (se mostrará si navegas a Junio)
@@ -222,5 +222,115 @@ document.addEventListener('DOMContentLoaded', () => {
       console.warn("ADVERTENCIA: No se encontró el botón #menu-toggle o la lista #main-nav-ul.");
  }
  // --- Fin Lógica Menú ---
+ 
 
 }); // Fin del DOMContentLoaded
+
+document.addEventListener('DOMContentLoaded', function() {
+    const carouselContainer = document.getElementById('myCarouselContainer'); // Usando ID
+    const carousel = document.getElementById('myCarousel');             // Usando ID
+    const prevButton = document.getElementById('carousel-prev-btn');     // Usando ID
+    const nextButton = document.getElementById('carousel-next-btn');     // Usando ID
+
+    // Solo ejecutar si todos los elementos existen
+    if (!carouselContainer || !carousel || !prevButton || !nextButton) {
+        console.warn("No se encontraron todos los elementos del carrusel con botones.");
+        return;
+    }
+
+    const items = carousel.querySelectorAll('.carousel-item');
+    if (items.length === 0) {
+        console.warn("No hay items en el carrusel.");
+        return;
+    }
+
+    let currentIndex = 0;
+    const totalItems = items.length;
+    // Asumimos que todos los items tienen el mismo ancho
+    // offsetWidth incluye padding y borde, clientWidth solo padding.
+    // getBoundingClientRect().width es más preciso si hay transformaciones.
+    const itemWidth = items[0].offsetWidth; 
+
+    function updateCarouselPosition() {
+        const newScrollLeft = currentIndex * itemWidth;
+        carouselContainer.scrollTo({
+            left: newScrollLeft,
+            behavior: 'smooth' // ¡Para la animación suave!
+        });
+        updateButtonStates();
+    }
+
+    function updateButtonStates() {
+        prevButton.disabled = currentIndex === 0;
+        nextButton.disabled = currentIndex >= totalItems - 1;
+    }
+
+    prevButton.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateCarouselPosition();
+        }
+    });
+
+    nextButton.addEventListener('click', () => {
+        if (currentIndex < totalItems - 1) {
+            currentIndex++;
+            updateCarouselPosition();
+        }
+    });
+
+    // Estado inicial de los botones
+    updateButtonStates(); 
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    // --- Lógica Filtro Descargas ---
+    const categoryFilter = document.getElementById('category-filter');
+    const downloadSections = document.querySelectorAll('.download-category-section'); // Selecciona TODAS las secciones
+	
+	console.log(`Número de secciones encontradas (.download-category-section): ${downloadSections.length}`);
+
+    // Solo ejecutar si existen los elementos necesarios
+    if (categoryFilter && downloadSections.length > 0) {
+        
+        // Función para mostrar/ocultar secciones
+        function filterCategories() {
+    const selectedCategory = categoryFilter.value; 
+    console.log("--- Filter Run ---"); // Log cada vez que corre
+    console.log("Selected Value:", `"${selectedCategory}"`); // Muestra el valor exacto
+
+    downloadSections.forEach((section, index) => { // Este bucle DEBERÍA ejecutarse 4 veces
+        const sectionCategory = section.dataset.category; 
+        // ¿Aparece este log 4 veces? ¿Qué dice sectionCategory?
+        console.log(`Item <span class="math-inline">\{index\}\: data\-category\="</span>{sectionCategory}"`); 
+
+        // Lógica: Mostrar SOLO si selectedCategory NO es "" Y coincide con sectionCategory
+        if (selectedCategory !== "" && sectionCategory === selectedCategory) {
+            // ¿Aparece este log alguna vez al cargar la página? (No debería)
+            console.log(` -> Condición VERDADERA para ${sectionCategory}. Añadiendo clase.`);
+            section.classList.add('visible-category');
+        } else {
+             // ¿Aparece este log 4 veces al cargar la página?
+             console.log(` -> Condición FALSA para ${sectionCategory}. Quitanto clase.`); 
+             section.classList.remove('visible-category'); 
+        }
+    });
+    console.log("--- Filter End ---");
+        }
+
+        // Ejecutar el filtro una vez al cargar la página 
+        // para mostrar la opción por defecto ('all' o la primera)
+        filterCategories(); 
+
+        // Añadir el listener para cuando cambie la selección del desplegable
+        categoryFilter.addEventListener('change', filterCategories);
+
+    } else {
+        // console.log("Elementos del filtro de descargas no encontrados en esta página.");
+    }
+    // --- Fin Lógica Filtro Descargas ---
+
+    // --- Tu otro código JS (Menú hamburguesa, Calendario, etc.) va aquí ---
+
+}); // Fin del DOMContentLoaded
+

@@ -1,0 +1,1149 @@
+/* --- Variables de Color (Paleta Clásica Racing) --- */
+:root {
+    --primary-color: #1c79ff; /* Rojo Intenso */
+    --secondary-color: #2d2d2d; /* Gris muy oscuro / Casi Negro */
+    --background-light: #FFFFFF; /* Blanco */
+    --background-dark: #111111; /* Negro para secciones oscuras */
+    --text-light: #F8F9FA; /* Texto claro sobre fondos oscuros */
+    --text-dark: #212529; /* Texto oscuro sobre fondos claros */
+    --accent-color: #C0C0C0; /* Plata/Gris claro para detalles */
+}
+
+/* --- Reset Básico y Estilos Globales --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* O una fuente más racing si tienes */
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--background-light);
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color); /* Títulos principales en rojo */
+}
+
+h2 {
+    font-size: 2rem;
+    text-align: center;
+    padding-top: 1.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* --- Header y Navegación --- */
+header {
+    /* Tus estilos para header se mantienen igual */
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    padding: 1rem 0;
+    position: sticky; 
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.header-content {
+    display: flex;           /* Sigue siendo contenedor flex */
+    align-items: center;     /* Centra verticalmente el nav */
+    justify-content: center; /* <<<--- ¡AÑADIDO! Centra horizontalmente el único item (el nav) */
+
+    /* Propiedades del contenedor (mantener o asegurarse de que está dentro de .container) */
+    width: 90%;          
+    max-width: 1100px;   
+    margin: 0 auto; 
+}
+
+/* Ya NO son necesarias las reglas para .logo o .logo a */
+
+/* Ya NO es necesaria la regla 'margin: 0 auto;' para nav */
+header nav {
+    /* Puedes tener otros estilos aquí, pero no el margen horizontal auto */
+}
+
+/* Los estilos para nav ul, li, a se mantienen */
+header nav ul {
+    list-style: none;
+    display: flex; /* Mantiene los items del menú en línea */
+    padding: 0;
+    margin: 0;
+}
+
+header nav ul li {
+    margin-left: 20px; /* Espacio entre elementos */
+}
+
+ header nav ul li:first-child {
+    margin-left: 0;
+}
+
+header nav ul li a {
+   color: var(--text-light); /* O el color que desees */
+   text-decoration: none;
+   /* ... tus otros estilos para enlaces de menú ... */
+}
+
+/* ... resto de tu CSS ... */
+
+
+
+/* Si usas texto para el logo */
+/*
+.logo h1 {
+    color: var(--text-light);
+    margin: 0;
+    font-size: 1.8rem;
+}
+.logo h1 a { color: inherit; text-decoration: none; }
+*/
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: var(--text-light);
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover, nav ul li a.active { /* 'active' necesitaría JS para funcionar bien en SPA */
+    background-color: var(--primary-color);
+    color: var(--background-light);
+    text-decoration: none;
+}
+
+/* --- Sección Héroe --- */
+#hero {
+    position: relative; /* Necesario para el overlay */
+    height: 95vh; /* Altura del banner */
+    background: url('images/fondos/1.png') no-repeat center center/cover; /* REEMPLAZA con tu imagen */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-light);
+}
+
+.hero-overlay { /* Capa oscura opcional para legibilidad */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Ajusta la opacidad */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative; /* Para que esté sobre el overlay */
+    z-index: 2;
+}
+
+#hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-light); /* Título del héroe en blanco */
+}
+
+#hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.cta-button { /* Botón Call-to-Action Principal */
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--background-light);
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+    background-color: #2d2d2d; /* Rojo más oscuro al pasar el ratón */
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+.cta-button-secondary { /* Botón secundario */
+    display: inline-block;
+    background-color: transparent;
+    color: var(--primary-color);
+    padding: 10px 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cta-button-secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--background-light);
+    text-decoration: none;
+}
+
+
+/* --- Secciones de Contenido --- */
+.content-section {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.content-section h2 {
+    margin-bottom: 2rem;
+}
+
+.dark-section {
+    background-color: var(--background-dark);
+    color: var(--text-light);
+}
+
+.dark-section h2 {
+     color: #FFF; /* Mantenemos títulos en rojo */
+}
+
+.dark-section a {
+    color: var(--accent-color); /* Enlaces más claros en fondo oscuro */
+}
+.dark-section a:hover {
+     color: var(--primary-color);
+}
+
+.dark-section .cta-button-secondary {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+.dark-section .cta-button-secondary:hover {
+    background-color: var(--accent-color);
+    color: var(--background-dark);
+}
+
+
+/* --- Sección Noticias (Grid Ejemplo) --- */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Columnas responsivas */
+    gap: 2rem;
+    text-align: left;
+    margin-top: 2rem;
+}
+
+.news-item {
+    background-color: var(--secondary-color); /* Fondo para cada tarjeta de noticia */
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.news-item:hover {
+    transform: translateY(-5px);
+}
+
+.news-item img.news-image {
+    width: 100%;
+    height: 180px; /* Altura fija para imágenes */
+    object-fit: cover; /* Para que la imagen cubra sin deformarse */
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.news-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.news-item p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    color: var(--text-light); /* Texto claro en tarjetas oscuras */
+}
+
+.news-item a {
+    font-weight: bold;
+}
+
+/* --- Sección Contacto --- */
+#contact .social-links {
+    margin-top: 1.5rem;
+}
+
+#contact .social-links a {
+    margin: 0 10px;
+    font-size: 2rem; /* Tamaño de los iconos (ajustar si usas font icons o SVGs) */
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover i {
+    transform: scale(1.2); /* Agranda un poco el icono al pasar el ratón */
+}
+
+#contact .social-links a:hover {
+    color: var(--primary-color);
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 2rem; /* Separación del último contenido */
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: var(--accent-color);
+}
+footer a:hover {
+    color: var(--primary-color);
+}
+
+/* --- Media Queries (Ejemplo Básico para Móviles) --- */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        margin-top: 1rem;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    #hero h1 {
+        font-size: 2.5rem;
+    }
+
+    #hero p {
+        font-size: 1rem;
+    }
+
+    .content-section {
+        padding: 2rem 0;
+    }
+
+     h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* --- Estilos para Contenido de Páginas Genéricas (Añadir a style.css) --- */
+.page-content {
+    padding: 3rem 0; /* Espaciado vertical estándar para contenido de página */
+    text-align: left; /* Alinear texto a la izquierda por defecto en páginas internas */
+    justify-content: center; /* <<<--- ¡AÑADIDO! Centra horizontalmente el único item (el nav) */
+}
+
+/* Centrar el H1 principal de las páginas internas */
+.page-content h1 {
+    text-align: center;
+    margin-bottom: 2.5rem; /* Más espacio después del título principal */
+    /* Hereda el color primario de la regla general h1,h2,h3 si existe */
+}
+
+/* Estilo para subtítulos en páginas internas */
+.page-content h2 {
+     margin-top: 2.5rem; /* Espacio antes de los subtítulos */
+     margin-bottom: 1rem;
+     border-bottom: 2px solid var(--primary-color); /* Línea debajo del H2 (opcional) */
+     padding-bottom: 0.5rem; /* Espacio entre texto H2 y línea */
+     /* Hereda el color primario */
+}
+
+.page-content p,
+.page-content ul,
+.page-content ol {
+    margin-bottom: 1.5rem; /* Más espacio entre párrafos/listas */
+    line-height: 1.7; /* Mejorar legibilidad de textos largos */
+}
+
+.page-content ul,
+.page-content ol {
+    margin-left: 2rem; /* Indentación para listas */
+}
+
+.page-content hr { /* Estilo para separadores horizontales */
+    border: 0;
+    height: 1px;
+    background-color: #e0e0e0; /* Color gris claro */
+    margin: 2.5rem 0;
+}
+
+/* --- Estilos para el Calendario --- */
+/* ... (Estilos del calendario y lista de eventos sin cambios aparentes) ... */
+#calendar-container { max-width: 450px; margin: 2rem auto; border: 1px solid #ddd; border-radius: 8px; padding: 15px; background-color: #f9f9f9; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+#calendar-header { text-align: center; margin-bottom: 1rem; font-size: 1.4rem; font-weight: bold; color: var(--secondary-color); }
+#calendar-header #month-name { margin-right: 0.5rem; }
+#calendar-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+#calendar-table th { padding: 8px 5px; text-align: center; font-size: 0.9rem; font-weight: bold; color: var(--primary-color); border-bottom: 2px solid #eee; }
+#calendar-table td { padding: 12px 5px; text-align: center; vertical-align: middle; border: 1px solid #eee; font-size: 0.95rem; height: 50px; color: var(--text-dark); }
+#calendar-table td.empty-day { background-color: #fdfdfd; border-color: #f1f1f1; }
+#calendar-table td.current-day { background-color: var(--primary-color); color: var(--text-light); font-weight: bold; border-radius: 50%; border-color: transparent; }
+#calendar-table td.event-day { position: relative; font-weight: bold; }
+#calendar-table td.event-day::after { content: ''; position: absolute; bottom: 6px; left: 50%; transform: translateX(-50%); width: 6px; height: 6px; background-color: var(--accent-color); border-radius: 50%; }
+#calendar-table td.current-day.event-day::after { background-color: var(--text-light); }
+#event-list-container { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #eee; }
+#event-list-container h4 { margin-bottom: 0.8rem; color: var(--secondary-color); }
+#event-list ul { list-style: none; padding: 0; margin: 0; }
+#event-list li { padding: 8px 0; border-bottom: 1px dotted #ddd; font-size: 0.95rem; line-height: 1.4; }
+#event-list li:last-child { border-bottom: none; }
+#event-list li strong { color: var(--primary-color); margin-right: 8px; }
+#event-list p { color: #666; font-style: italic; }
+/* (Opcional) Estilo si un día tuviera un evento */
+/*
+#calendar-table td.event-day {
+    position: relative;
+    font-weight: bold;
+}
+#calendar-table td.event-day::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5px;
+    height: 5px;
+    background-color: var(--accent-color); // Punto de color de acento
+    border-radius: 50%;
+}
+*/
+
+/* style.css */
+
+/* style.css */
+
+/* Estilo para días con evento */
+#calendar-table td.event-day {
+    position: relative; /* Necesario para el pseudo-elemento ::after */
+    font-weight: bold; /* Hacer el número del día más grueso */
+    /* background-color: #ffebee; */ /* O un fondo ligeramente diferente */
+}
+
+/* Añade un punto debajo del número para indicar evento */
+#calendar-table td.event-day::after {
+    content: '';
+    position: absolute;
+    bottom: 6px; /* Ajusta posición vertical del punto */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px; /* Tamaño del punto */
+    height: 6px; /* Tamaño del punto */
+    background-color: var(--accent-color); /* Usa tu color de acento */
+    border-radius: 50%;
+}
+
+/* Si un día es HOY y TAMBIÉN tiene evento, el punto debe ser visible */
+#calendar-table td.current-day.event-day::after {
+     background-color: var(--text-light); /* Punto blanco sobre fondo rojo */
+     /* O un color que contraste bien con el fondo de .current-day */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- Estilos para el Formulario de Contacto --- */
+.form-group {
+    margin-bottom: 1.2rem; 
+}
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+	position: relative;
+	z-index: 2;
+    font-size: 0.95rem;
+    color: #fff; /* Color por defecto en formularios claros */
+}
+/* Inputs comunes */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="date"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+	position: relative;
+	z-index: 2;
+    font-family: inherit;
+    box-sizing: border-box; 
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.form-group textarea {
+    resize: vertical; 
+    min-height: 120px;
+}
+/* Focus en inputs */
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="date"]:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color); 
+    outline: none; 
+	position: relative;
+	z-index: 2;
+    box-shadow: 0 0 0 3px hsla(215, 100%, 55%, 0.2); 
+}
+/* Contenedor del botón submit */
+.form-submit {
+    text-align: center; /* Centrado por defecto */
+    margin-top: 2rem;
+    padding-top: 1rem; 
+    border-top: 1px solid #eee;
+	position: relative;
+	z-index: 2;
+}
+/* Botón submit (usa clase .cta-button) */
+.form-submit .cta-button {
+     min-width: 180px; 
+     cursor: pointer;
+}
+
+.form-background {
+	background: url('images/acs 2025-02-18 00-41-31.bmp') no-repeat center center / cover;
+}
+
+.form-overlay { /* Capa oscura opcional para legibilidad */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    background-color: rgba(0, 0, 0, 0.5); /* Ajusta la opacidad */
+    z-index: 1;
+}
+
+/* --- Estilos específicos para #contact-form-section (si es diferente) --- */
+/* Simplificado, asumiendo fondo blanco o claro */
+#contact-form-section { 
+    max-width: 700px; 
+    margin: 2rem auto; 
+    padding: 3rem 1.5rem; 
+    border-radius: 8px; 
+    box-shadow: 0 3px 10px rgba(0,0,0,0.5); 
+}
+#contact-form-section h1 { text-align: center; position: relative; color: var(--background-light); font-size: 2.5rem; margin-bottom: 1rem; z-index: 2; }
+#contact-form-section p { text-align: center; position: relative; margin-bottom: 1.5rem; color: #fff; z-index: 2; }
+/* Hereda los estilos de .form-group, input, label definidos arriba */
+/* Ajustar alineación del botón si se quiere a la derecha */
+/* #contact-form-section .form-submit { text-align: right; } */
+
+/* --- Estilos específicos para #registro-form-section --- */
+/* Ya definidos antes, heredan de .form-group, etc. */
+#registro-form-section {
+    max-width: 650px; 
+    margin: 3rem auto; 
+    padding: 2rem 2.5rem; 
+    background-color: #ffffff; 
+    border: 1px solid #e0e0e0; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
+    text-align: left; 
+	z-index: 1;
+}
+#registro-form-section h2 { text-align: center; position: relative; color: var(--background-light); margin-bottom: 0.75rem; font-size: 1.8rem; z-index: 2; }
+#registro-form-section p { text-align: center; position: relative; margin-bottom: 2rem; color: #fff; font-size: 1rem; z-index: 2; }
+#registro-form-section hr { border: 0; position: relative; height: 1px; background-color: #eee; margin: 2rem 0; z-index: 2; }
+/* Hereda .form-group, etc. */
+#registro-form-section .form-submit { text-align: center; border-top: 1px solid #eee;}
+
+
+/* --- Estilos Base (Aplicables a todas las pantallas si no se sobrescriben) --- */
+
+/* Botón Hamburguesa: Oculto por defecto (visión escritorio) */
+.menu-toggle-button {
+    display: none; /* Oculto en pantallas grandes */
+    background: transparent;
+    border: none;
+    color: var(--text-light); /* O el color que quieras para el icono */
+    font-size: 1.8rem; /* Tamaño del icono hamburguesa */
+    cursor: pointer;
+    padding: 5px 10px;
+    z-index: 1010; /* Asegurar que esté sobre otros elementos si es necesario */
+    margin-left: auto; /* Lo empuja a la derecha si el logo está presente */
+}
+
+/* CONTACTO PARA MOVIL */
+
+@media (max-width: 768px) { 
+
+.form-group button.cta-button {
+	position: center; /* Para que esté sobre el overlay */
+	text-align: center;
+	box-sizing: border-box;
+	display: flex;
+	width: 100%;
+
+  /* Para centrar horizontalmente los hijos: */
+  justify-content: center; 
+
+  /* Para centrar verticalmente los hijos (si el padre tiene altura): */
+  align-items: center; 
+}	
+
+#contact-form-section h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--background-light); /* Título del héroe en blanco */
+    color: var(--background-light); /* Título del héroe en blanco */
+	position: relative; /* Para que esté sobre el overlay */
+	text-align: center;
+    z-index: 2;
+}
+
+#contact-form-section p {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+    color: var(--background-light); /* Título del héroe en blanco */
+    color: var(--background-light); /* Título del héroe en blanco */
+	text-align: center;
+	position: relative; /* Para que esté sobre el overlay */
+    z-index: 2;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%; /* Ocupan todo el ancho disponible */
+    padding: 3px;
+    border: 0px solid #ccc;
+    border-radius: 0px;
+	max-width: 800px;
+    font-size: 1rem;
+    font-family: inherit; /* Usa la misma fuente que el resto del sitio */
+    box-sizing: border-box; /* Importante para que padding no aumente el ancho total */
+	position: relative; /* Para que esté sobre el overlay */
+    z-index: 2;
+}
+
+.form-group textarea {
+    resize: vertical; /* Permite redimensionar verticalmente */
+    min-height: 100px;
+}
+
+/* Estilo para cuando el campo está enfocado (seleccionado) */
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color); /* Cambia el borde a rojo */
+    outline: none; /* Quita el borde por defecto del navegador */
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.3); /* Sombra roja suave */
+	    position: relative; /* Para que esté sobre el overlay */
+    z-index: 2;
+}
+
+}
+
+/* Estilos del menú de navegación UL (escritorio por defecto) */
+header nav ul {
+    list-style: none;
+    display: flex; /* Horizontal en escritorio */
+    padding: 0;
+    margin: 0; /* Asegúrate de que no haya márgenes por defecto */
+}
+
+header nav ul li {
+     margin-left: 20px; /* Espacio entre items en escritorio */
+}
+ header nav ul li:first-child {
+    margin-left: 0; 
+ }
+
+
+/* --- Estilos para Móvil (Pantallas Pequeñas) --- */
+@media (max-width: 768px) { /* Ajusta este valor (breakpoint) según necesites */
+
+    /* Mostrar el botón hamburguesa */
+    .menu-toggle-button {
+        display: block; /* Hacemos visible el botón */
+        /* Si no tenías logo, el botón será el único elemento visible además del nav (que ocultaremos) */
+        /* Podría necesitar ajustar su posición si el header-content tiene justify-content: center */
+         order: 3; /* Si usas flexbox en header-content, esto puede ayudar a posicionarlo al final */
+         margin-left: center; /* Intenta empujarlo a la derecha */
+		 
+    }
+
+    /* Ocultar el NAV completo o solo el UL. Ocultar UL es más seguro */
+    /* header nav { display: none; } */ /* Cuidado si el botón está dentro del nav */
+
+    /* Estilos del UL cuando es menú desplegable */
+    header nav ul#main-nav-ul {
+        display: none; /* OCULTO por defecto en móvil */
+        position: absolute; /* Lo sacamos del flujo para posicionarlo */
+        top: 100%; /* Lo posiciona justo debajo del header (asumiendo que el header tiene position sticky/relative) */
+        /* top: 70px; */ /* O una altura fija si sabes cuánto mide tu header */
+        left: 0;
+        width: 100%;
+        background-color: var(--secondary-color); /* Fondo oscuro (o el que prefieras) */
+        flex-direction: column; /* Apila los elementos verticalmente */
+        padding: 0; /* Sin padding por defecto */
+        margin: 0; /* Sin margen por defecto */
+        box-shadow: 0 3px 5px rgba(0,0,0,0.2); /* Sombra para el desplegable */
+        z-index: 1000; /* Asegurar que esté sobre el contenido de la página */
+    }
+	
+@media (max-width: 768px) {
+
+    /* ... otros estilos móviles ... */
+
+    /* ESTADO POR DEFECTO EN MÓVIL (OCULTO) */
+    header nav ul#main-nav-ul {
+        display: none; /* ¡Importante! Oculto por defecto */
+        position: absolute; 
+        /* ... otros estilos de posicionamiento, fondo, etc ... */
+        flex-direction: column; /* Asegurar dirección vertical */
+    }
+
+    /* ESTADO CUANDO ESTÁ VISIBLE (CON LA CLASE AÑADIDA POR JS) */
+    header nav ul#main-nav-ul.menu-visible {
+        display: flex; /* O display: block; Lo muestra */
+        /* No necesita más estilos aquí si ya están en la regla anterior */
+    }
+
+    /* ... otros estilos móviles ... */
+}
+
+    /* Clase que AÑADIREMOS con JavaScript para MOSTRAR el menú */
+    header nav ul#main-nav-ul.menu-visible {
+        display: flex; /* O display: block; Lo hacemos visible */
+    }
+
+    /* Estilos para los items y enlaces dentro del menú desplegable */
+    header nav ul#main-nav-ul li {
+        margin-left: 0; /* Sin margen izquierdo */
+        width: 100%; /* Ocupa todo el ancho */
+        text-align: center; /* Centra el texto del enlace */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea separadora */
+    }
+     header nav ul#main-nav-ul li:last-child {
+         border-bottom: none; /* Sin línea en el último */
+     }
+
+
+    header nav ul#main-nav-ul li a {
+        display: block; /* Hace que el enlace ocupe todo el 'li' */
+        padding: 1rem 1.5rem; /* Padding generoso para tocar fácil */
+        color: var(--text-light); /* Color de texto */
+        text-decoration: none;
+        transition: background-color 0.2s ease-in-out;
+    }
+
+    header nav ul#main-nav-ul li a:hover {
+        background-color: var(--primary-color); /* Fondo rojo al pasar el ratón */
+        color: var(--text-light); /* Asegurar color de texto */
+    }
+
+    /* Ajustar el contenedor flex del header en móvil si es necesario */
+    /* Si quitaste el logo, ahora solo está el botón y el nav (oculto) */
+    .header-content {
+        display: flex;           /* Debe seguir siendo flex */
+        align-items: center;     /* Mantiene el centrado vertical */
+        justify-content: center; /* ¡ESTA ES LA CLAVE! Centra el/los item(s) horizontalmente */
+        
+        /* Las propiedades de width/max-width/margin probablemente ya las hereda de .container o las tiene definidas */
+        /* width: 90%; max-width: 1100px; margin: 0 auto; */ 
+    }
+
+    /* Asegúrate de que el botón esté visible */
+    .menu-toggle-button {
+        display: block; /* O inline-block, para que sea visible */
+        
+        /* ¡IMPORTANTE! Elimina cualquier margen automático o 'order' que pudiera quedar de intentos anteriores */
+        margin-left: 0; 
+        margin-right: 0;
+        order: 0; /* Resetea el orden si lo habías cambiado */
+    }
+
+    /* Asegúrate de que el <nav> no tenga margen automático en móvil */
+    header nav {
+        margin: 0; 
+    }
+
+     /* ... (el resto de tus estilos para ul, li, a en móvil) ... */
+	 
+
+
+}
+
+/* --- Estilos para el Formulario de Registro (Añadir a style.css) --- */
+
+/* Contenedor principal de la sección del formulario */
+#registro-form-section {
+    max-width: 650px;       /* Un ancho máximo razonable para el formulario */
+    margin: 3rem auto;      /* Centrado horizontalmente y margen vertical */
+    padding: 2rem 2.5rem;   /* Relleno interior generoso */
+    background-color: #ffffff; /* Fondo blanco para destacar sobre la página si es gris */
+    border: 1px solid #e0e0e0; /* Borde sutil */
+    border-radius: 8px;     /* Esquinas redondeadas */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra suave */
+    text-align: left;       /* Alineación de texto por defecto a la izquierda */
+}
+
+/* Título y párrafo dentro de la sección */
+#registro-form-section h2 {
+    text-align: center;         /* Centrar el título */
+    color: var(--secondary-color); /* O usa --primary-color si prefieres */
+    margin-bottom: 0.75rem;     /* Reducir espacio inferior */
+    font-size: 1.8rem;          /* Ajustar tamaño si es necesario */
+}
+
+#registro-form-section p {
+    text-align: center;
+    margin-bottom: 2rem;      /* Espacio antes de la línea */
+    color: #666;              /* Gris para el texto descriptivo */
+    font-size: 1rem;
+}
+
+#registro-form-section hr {
+    border: 0;
+    height: 1px;
+    background-color: #eee;  /* Línea separadora más clara */
+    margin: 2rem 0;
+}
+
+/* Grupos de formulario (etiqueta + campo) */
+#registro-form-section .form-group {
+    margin-bottom: 1.2rem;   /* Espacio vertical entre campos */
+}
+
+#registro-form-section .form-group label {
+    display: block;          /* La etiqueta ocupa su propia línea */
+    margin-bottom: 0.5rem;   /* Espacio entre etiqueta y campo */
+    font-weight: 600;        /* Un poco más de peso */
+    font-size: 0.9rem;       /* Tamaño ligeramente reducido */
+    color: #333;             /* Color de etiqueta */
+}
+
+/* Estilo común para los campos de entrada (texto, fecha) */
+#registro-form-section .form-group input[type="text"],
+#registro-form-section .form-group input[type="date"] {
+    width: 100%;                /* Ocupan todo el ancho */
+    padding: 10px 14px;         /* Relleno interior */
+    border: 1px solid #ccc;     /* Borde estándar */
+    border-radius: 5px;         /* Esquinas redondeadas */
+    font-size: 1rem;            /* Tamaño de fuente legible */
+    font-family: inherit;       /* Misma fuente que el body */
+    box-sizing: border-box;     /* Padding no aumenta el tamaño total */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease; /* Transición suave */
+}
+
+/* Efecto visual al seleccionar (enfocar) un campo */
+#registro-form-section .form-group input[type="text"]:focus,
+#registro-form-section .form-group input[type="date"]:focus {
+    border-color: var(--primary-color); /* Cambia color del borde al primario (azul) */
+    outline: none;                      /* Quita el borde/outline feo del navegador */
+    box-shadow: 0 0 0 3px hsla(215, 100%, 55%, 0.2); /* Sombra exterior suave del color primario */
+}
+
+/* Contenedor del botón de envío */
+#registro-form-section .form-submit {
+    text-align: center;         /* Centrar el botón */
+    margin-top: 2.5rem;       /* Más espacio antes del botón */
+    padding-top: 1rem;        /* Espacio extra arriba */
+    border-top: 1px solid #eee; /* Línea separadora opcional antes del botón */
+}
+
+/* Reutilizar el estilo del botón principal que ya tenías */
+#registro-form-section .cta-button {
+    /* Puedes añadir estilos específicos aquí si quieres que sea diferente */
+    /* Por ejemplo, un ancho mínimo */
+     min-width: 180px; 
+     cursor: pointer;
+}
+
+/* (Opcional) Estilos responsivos para el formulario si es necesario */
+@media (max-width: 480px) {
+    #registro-form-section {
+        padding: 1.5rem; /* Menos padding en pantallas muy pequeñas */
+    }
+     #registro-form-section h2 {
+        font-size: 1.5rem; 
+    }
+}
+
+/* --- Estilos para los Botones del Carrusel --- */
+
+/* En style.css */
+
+.scroll-carousel-container {
+   max-width: 600px;   /* ANCHO DEL CARRUSEL VISIBLE (ajusta esto) */
+                           /* Asegúrate que sea menor que el ancho del .container de la página 
+                              para que haya espacio para los botones a los lados */
+    width: 100%;        /* Para que sea responsive hasta el max-width */
+    margin: 0;          /* Quitamos márgenes para que el 'gap' del wrapper controle el espacio */
+    overflow-x: hidden;   
+    border: 0px solid #eee; 
+    border-radius: 8px; 
+    flex-grow: 1; /* Opcional: si quieres que el carrusel ocupe el espacio central disponible entre los botones */
+    flex-shrink: 1; /* Permitir que se encoja si es necesario */
+    min-width: 100px; /* Evitar que se encoja demasiado */
+}
+
+.scroll-carousel {
+    display: flex;      
+    width: max-content; 
+}
+
+.carousel-item {
+    flex: 0 0 100%; 
+    width: 100%;    
+    box-sizing: border-box; 
+}
+
+.carousel-item img {
+    display: block;
+    width: 9.4%;   
+    height: auto; /* O altura fija + object-fit si es el caso */
+    /* ... */
+}
+
+/* Estilos de los botones de control (los mismos que antes) */
+.carousel-controls {
+    display: flex; 
+    justify-content: center; 
+    margin-bottom: 1rem; 
+}
+
+.carousel-button {
+     background-color: transparent;
+    color: white; 
+    padding: 0; /* El padding se maneja con width/height para centrar el icono */
+    cursor: pointer; 
+    font-size: 2rem; /* O usa un icono SVG/FontAwesome */
+    font-weight: bold;
+    width: 80px;  
+    height: 90px; 
+    
+    display: flex; /* Para centrar el carácter de flecha dentro del botón */
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    
+    flex-shrink: 0; /* Para que los botones no se encojan */
+    transition: background-color 0.2s ease, color 0.2s ease;
+	border: none;
+}
+
+.carousel-button:hover {
+     background-color: var(--primary-color); 
+    color: #2d2d2d; 
+}
+
+.blue-section {
+     background-image: url('images/barras blancas.png');
+	 background-size: cover;
+	 background-position: center center;
+}
+
+.blue-section h2 {
+    color: var(--text-light);
+}
+
+
+/* Estilo para botones deshabilitados */
+.carousel-button:disabled {
+    color: #2d2d2d;
+    cursor: not-allowed;
+    background-color: transparent;
+}
+
+.carousel-wrapper {
+    display: flex;         /* ¡CLAVE! Habilita Flexbox */
+    align-items: center;   /* ¡CLAVE! Centra verticalmente todos los hijos (botones y carrusel) */
+    justify-content: center; /* Opcional: Centra el conjunto si el wrapper es más ancho que su contenido */
+                           /* Podrías usar 'space-between' si quieres que los botones se separen más, 
+                              pero entonces el carrusel no se centraría tan fácilmente entre ellos.
+                              'center' con 'gap' suele funcionar bien. */
+    gap: 15px;             /* Espacio entre los botones y el carrusel (ajusta según necesites) */
+    margin-top: 2rem;      /* Margen opcional arriba del conjunto */
+    margin-bottom: 0rem;   /* Margen opcional abajo del conjunto */
+}
+
+
+
+@media (max-width: 700px) { /* Ajusta este breakpoint si el carrusel + botones no caben */
+    .carousel-wrapper {
+        /* flex-direction: column; */ /* Si quieres apilarlos verticalmente */
+        /* O simplemente reducir el tamaño de los botones o el gap */
+        gap: 8px;
+    }
+    .scroll-carousel-container {
+        /* Podrías querer que el carrusel ocupe más ancho relativo si los botones se mueven */
+        max-width: calc(100% - 80px); /* Ejemplo si los botones se mantienen a los lados */
+    }
+    .carousel-button {
+        width: 30px;
+        height: 30px;
+        font-size: 1.2rem;
+    }
+	
+	.blue-section {
+		background-image: none;
+		background-color: var(--primary-color);
+		color: var(--text-light);
+}
+
+/* --- Sección Pilotos (Preview Ejemplo) --- */
+.driver-preview {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+.driver-preview img { /* Reemplazar span con img cuando tengas fotos */
+    width: 10px;
+    height: 10px;
+    background-color: var(--accent-color);
+    color: var(--secondary-color);
+    border-radius: 60%; /* Círculo */
+    line-height: 80px; /* Centrar texto verticalmente (si usas texto) */
+    text-align: center;
+    font-weight: bold;
+}
+
+/* --- Estilos para el Filtro de Descargas --- */
+
+/* Estilo para el contenedor del desplegable (opcional) */
+.category-filter {
+    margin-bottom: 2rem;
+    max-width: 350px; /* Limitar ancho del desplegable */
+}
+.category-filter label {
+    /* Hereda estilos de .form-group label si existen */
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+.category-filter select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: inherit;
+    background-color: white; /* Fondo blanco */
+    cursor: pointer;
+}
+.category-filter select:focus {
+    border-color: var(--primary-color); 
+    outline: none; 
+    box-shadow: 0 0 0 3px hsla(215, 100%, 55%, 0.2); 
+}
+
+
+/* Contenedor de las secciones de descarga */
+#download-sections {
+    margin-top: 2rem;
+}
+
+/* ¡CLAVE! Ocultar todas las secciones de categoría POR DEFECTO */
+.download-category-section {
+    display: none; 
+    margin-bottom: 2.5rem; /* Espacio debajo de cada sección cuando es visible */
+}
+
+/* Clase que añadiremos con JS para MOSTRAR la sección seleccionada */
+.download-category-section.visible-category {
+    display: block; /* O grid, flex, etc., según el layout interno de la sección */
+    animation: fadeIn 0.5s ease-in-out; /* Animación suave opcional */
+}
+
+/* Estilos para los títulos H3 dentro de cada sección */
+.download-category-section h3 {
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+}
+
+/* Reutilizar estilos de .download-list si ya los tienes */
+.download-list {
+    list-style: none;
+    padding: 0;
+}
+.download-list li {
+    background-color: #fdfdfd;
+    border: 1px solid #eee;
+    padding: 0.8rem 1.2rem;
+    margin-bottom: 0.8rem;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+/* ... (resto de estilos para .download-list li a, i, .file-size) ... */
+
+/* Animación Fade-in Opcional */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+/* Reutilizamos el estilo del botón CTA principal */
+/* .form-group button.cta-button { ... } */ 
+/* Si necesitas estilos específicos para este botón, puedes añadirlos */
